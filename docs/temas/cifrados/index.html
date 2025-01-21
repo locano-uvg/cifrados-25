@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptografía</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/moon.min.css">
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
 
-        <!-- Introducción -->
-        <section>
-          <h1>Criptografía</h1>
-          <p>Introducción al curso</p>
-          <p><strong>Ludwing Cano</strong></p>
-        </section>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criptografía</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/moon.min.css">
+</head>
 
-        <!-- Agenda -->
-        <section>
-          <h2>Agenda</h2>
-          <ul>
-            <li>Aplicación actual</li>
-            <li>Clasificación</li>
-            <li>Configuraciones</li>
-            <li>Cypher</li>
-            <li>Ataques</li>
-            <li>Glosario</li>
-          </ul>
-        </section>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-        <!-- Criptografía en la actualidad -->
+      <!-- Introducción -->
+      <section>
+        <h1>Criptografía</h1>
+        <p>Introducción al curso</p>
+        <p><strong>Ludwing Cano</strong></p>
+      </section>
+
+      <!-- Agenda -->
+      <section>
+        <h2>Agenda</h2>
+        <ul>
+          <li>Aplicación actual</li>
+          <li>Clasificación</li>
+          <li>Configuraciones</li>
+          <li>Cypher</li>
+          <li>Ataques</li>
+          <li>Glosario</li>
+        </ul>
+      </section>
+
+      <!-- Criptografía en la actualidad -->
+      <section>
         <section>
           <h2>Criptografía en la actualidad</h2>
-          <p>¿Ejemplos?</p>
-          <p>Aplicaciones modernas</p>
         </section>
+        <section>
+          <p>¿Ejemplos?</p>
+        </section>
+        <section>
+          <p>Aplicaciones modernas</p>
+          <section>
+            <ul>
+              <li>Celulares</li>
+              <li>Ipads</li>
+              <li>Pasaporte electrónico</li>
+              <li>Tickets electrónicos</li>
+              <li>Spotify</li>
+              <li>Apple watch</li>
+              <li>Chats</li>
+            </ul>
+          </section>
+        </section>
+      </section>
 
-        <!-- Definiciones -->
+      <!-- Definiciones -->
+      <section>
+        <section>
+          <h2>¿Criptología?</h2>
+          <h2>¿Criptoanálisis?</h2>
+          <h2>¿Criptografía?</h2>
+        </section>
         <section>
           <h2>¿Criptología?</h2>
           <p>Campo de estudio que incluye tanto criptografía como criptoanálisis.</p>
@@ -53,48 +78,224 @@
           <p>Estudio de cómo alterar un mensaje para que no sea legible sin el algoritmo y la clave adecuados.</p>
           <p><strong>Encriptar:</strong> Científicos</p>
         </section>
+      </section>
 
-        <!-- Criptografía y seguridad -->
+      <!-- Criptografía y seguridad -->
+      <section>
         <section>
           <h2>¿Criptografía = Seguridad?</h2>
+        </section>
+        <section>
+          <img src="./assets/mmm.jpg" width="500" />
+        </section>
+        <section>
+          <img src="./assets/atom.gif" width="500" />
+          <p>La seguridad no es criptografía.</p>
           <p>La criptografía es un elemento para cumplir con la seguridad, pero no lo es todo.</p>
         </section>
-
-        <!-- Clasificación -->
         <section>
-          <h2>Clasificación de Criptografía</h2>
+          <img src="./assets/ramas.jpg" width="500" />
           <p>Se divide en diferentes categorías según su aplicación y complejidad.</p>
         </section>
+      </section>
 
-        <!-- Ataques -->
+      <!-- Clasificación -->
+      <section>
         <section>
-          <h2>Ataques</h2>
+          <h2>Clasificación de Criptografía</h2>
+        </section>
+        <section>
           <ul>
-            <li>Clásicos</li>
-            <li>Fuerza bruta</li>
-            <li>Analíticos</li>
-            <li>Ingeniería social</li>
-            <li>Ataques de implementación</li>
+            <li>Simétricos</li>
+            <li>Asimétricos</li>
+            <li>Protocólogos</li>
           </ul>
         </section>
 
-        <!-- Glosario -->
+      </section>
+      <section>
+        <section>
+          <h2>Algoritmo Simétricos</h2>
+        </section>
+        <section>
+          <div style="background-color: white;">
+            <img src="./assets/canal_inseguro.png" width="500" />
+          </div>
+          <p>
+            Canal Inseguro
+          </p>
+        </section>
+        <section>
+          <p>
+            Tipo de canales:
+          </p>
+          <ul>
+            <li>Internet</li>
+            <li>GSM</li>
+            <li>SMS</li>
+            <li>WIFI</li>
+          </ul>
+          <p>
+            Es un canal abierto donde se pueden observar los mensajes
+          </p>
+        </section>
+        <section>
+          <div style="background-color: white;">
+            <img src="./assets/canal_seguro.png" width="800" />
+          </div>
+          <p>
+            Canal Seguro
+          </p>
+        </section>
+        <section>
+          <div style="background-color: white;">
+            <img src="./assets/canal_seguro2.png" width="800" />
+          </div>
+          <p>
+            Canal Seguro
+          </p>
+        </section>
+          <section>
+            <div>
+              <img src="./assets/bru.jpg" width="500" />
+            </div>
+            <h2>
+              ¿Canal Seguro?
+            </h2>
+          </section>
+          <section>
+            <p>
+              Posee funciones para encriptar (e) y desencriptar (d)
+            </p>
+          </section>
+          <section>
+            <ul>
+              <li>Las funciones deben de ser públicos con el fin de saber si es seguro.
+                Es decir que si una función es publica, será probada por personas y podremos respaldar si el algoritmo es seguro.
+              </li>
+              <li><b>NUNCA</b> usar algoritmos no probados.</li></li>
+            </ul>
+          </section>
+          <section>
+            <h2>
+              ¿Como romperlo?
+            </h2>
+          </section>
+          <section>
+            <div>
+              <img src="./assets/bruteforce.png" width="800" />
+            </div>
+            
+          </section>
+          <section>
+            <h2>
+              Substitution Cipher
+            </h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Son algoritmos históricos
+
+              </li>
+              <li>
+                Algoritmos que operaban con letras.
+
+
+              </li>
+              <li>
+                Su objetivo era remplazar un texto plano por un ajuste en letras para formar un cipher text .
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div>
+              <img src="./assets/cipher.png" width="1000" />
+            </div>
+          </section>
+          <section>
+            <div>
+              <img src="./assets/subcipher.png" width="800" />
+            </div>
+            <h2> ¿Es seguro?</h2>
+          </section>
+      </section>
+
+      <!-- Ataques -->
+      <section>
+        <section>
+          <h2>Clasificación de Ataques</h2>
+        </section>
+        <section>
+          <p>Existen muchos tipos de ataques en el criptoanálisis.</p>
+          <ul>            
+            <li>Key search</li>
+            <li>Brutal forcé </li>
+            <li>Frecuencia de letras</li>
+          </ul>
+        </section>
+        <section>
+          <img src="./assets/clasicos.png" width="500" />
+          <p>Clásicos</p>
+        </section>
+        <section>
+          <img src="./assets/analiticos.png" width="500" />
+          <p>Analíticos</p>
+        </section>
+        <section>
+          <img src="./assets/ingsocial.png" width="500" />
+          <pre>Ingeniería Social</p>
+        </section>
+        <section>
+          <img src="./assets/implementacion.png" width="500" />
+          <p>Implementacion</p>
+        </section>
+      </section>
+
+      <!-- Glosario -->
+      <section>
         <section>
           <h2>Glosario</h2>
+        </section>
+        <section>
           <ul>
             <li><strong>Cifrado:</strong> Algoritmo para transformar texto plano en texto cifrado.</li>
             <li><strong>Texto cifrado:</strong> Mensaje codificado.</li>
             <li><strong>Texto plano:</strong> Mensaje original.</li>
-            <li><strong>Criptoanálisis:</strong> Métodos para descifrar texto cifrado.</li>
-            <li><strong>Criptografía:</strong> Alteración de mensajes para proteger su contenido.</li>
           </ul>
         </section>
+        <section>
+          <ul>
+            <li><strong>Criptoanálisis:</strong> También conocido como descifrado de código; es el estudio de principios
+              y métodos para descifrar texto cifrado sin conocer la clave.</li>
+            <li><strong>Criptografía:</strong> El estudio de cómo alterar un mensaje para que al interceptarlo alguien
+              no pueda leerlo sin el algoritmo y la clave adecuados.</li>
+            <li><strong>Criptología:</strong> Campo de estudio más completo e incluye tanto criptografía como
+              criptoanálisis.</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li><strong>Descifrar (desencriptar):</strong> Convertir el texto cifrado en texto sin formato.</li>
+            <li><strong>Cifrar (encriptar):</strong> Convertir el texto sin formato en texto cifrado.</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li><strong>Clave (llave):</strong>Información, generalmente algún tipo de número, que se utiliza con el
+              algoritmo para cifrar o descifrar el mensaje.</li>
+            <li><strong>Espacio de clave:</strong> El número total de claves posibles que se podrían usar. Por ejemplo,
+              DES usa una clave de 56 bits; por lo tanto, el número total de claves posibles, o la clave es 256.</li>
+          </ul>
+        </section>
+      </section>
 
-      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-    <script>
-      Reveal.initialize();
-    </script>
-  </body>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+
 </html>
