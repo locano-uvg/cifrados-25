@@ -12,7 +12,16 @@ alphabet = "abcdefghijklmnñopqrstuvwxyz"
 
 alfabeto = 'abcdefghijklmnñopqrstuvwxyz'
 
+def clearText(text):
+    # remove áéíóúü
+    text = text.replace('á', 'a')
+    text = text.replace('é', 'e')
+    text = text.replace('í', 'i')
+    text = text.replace('ó', 'o')
+
+    return ''.join([c for c in text if c in alphabet])
 def cifrar_afin(texto, a, b):
+    texto = clearText(texto)
     m = len(alfabeto)
 
     texto_cifrado = ""

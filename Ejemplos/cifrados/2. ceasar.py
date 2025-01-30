@@ -1,7 +1,17 @@
 
 alphabet = "abcdefghijklmnñopqrstuvwxyz"
 
+def clearText(text):
+    # remove áéíóúü
+    text = text.replace('á', 'a')
+    text = text.replace('é', 'e')
+    text = text.replace('í', 'i')
+    text = text.replace('ó', 'o')
+
+    return ''.join([c for c in text if c in alphabet])
+
 def encript(plain_text, key): 
+    plain_text = clearText(plain_text)
     cipher_text = ""
 
     for c in plain_text:
@@ -42,11 +52,11 @@ def decript(cipher_text, key):
 
 
 # print("ENCRIPTION:")
-# plain_text = input("Enter your message: ")
-# k = int(input("Enter the key encript: "))
-# cipher_text = encript(plain_text, k)
+plain_text = input("Enter your message: ")
+k = int(input("Enter the key encript: "))
+cipher_text = encript(plain_text, k)
 
-# print("Encrypted:", cipher_text) 
+print("Encrypted:", cipher_text) 
 
 # print("___________________\n")
 

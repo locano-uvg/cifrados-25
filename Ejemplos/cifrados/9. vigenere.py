@@ -1,10 +1,22 @@
 
 alfabeto = 'abcdefghijklmnñopqrstuvwxyz'
+def clearText(text):
+    # remove áéíóúü
+    text = text.replace('á', 'a')
+    text = text.replace('é', 'e')
+    text = text.replace('í', 'i')
+    text = text.replace('ó', 'o')
+    text = text.replace('ú', 'u')
+
+
+    return ''.join([c for c in text if c in alfabeto])
+
 def cifrar_vigenere(texto, clave):
     m = len(alfabeto)
 
     # Convertir el texto y la clave a minúsculas para evitar problemas con mayúsculas
     texto = texto.lower()
+    texto = clearText(texto)
     clave = clave.lower()
 
     texto_cifrado = ""
@@ -86,8 +98,8 @@ print("Texto cifrado:", texto_cifrado)
 
 
 
-# Ejemplo de uso:
-texto_cifrado = input("Introduce el texto a descifrar: ")
+# # Ejemplo de uso:
+texto_cifrado = input("Introduce el texto cifrado: ")
 clave = input("Introduce la clave: ")
 
 texto_descifrado = descifrar_vigenere(texto_cifrado, clave)
