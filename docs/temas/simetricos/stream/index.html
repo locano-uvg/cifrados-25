@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stream Ciphers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Stream Ciphers</h1>
+        </section>
+        <!-- AGENDA -->
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Definición</li>
+            <li>Características</li>
+            <li>Keystreams</li>
+            <li>Procesos</li>
+          </ul>
+        </section>
+        <!-- DEFINICION -->
+        <section>
+          <h2>Definición</h2>
+          <ul>
+            <li>Utilizan una clave y un flujo de bits</li>
+            <li>Clave compartida entre emisor y receptor</li>
+            <li>Clave debe ser segura</li>
+            <li>Cifra cada bit de manera independiente</li>
+            <li>Cifra los datos a medida que fluyen</li>
+          </ul>
+        </section>
+        <!-- CARACTERISTICAS -->
+        <section>
+          <section>
+            <h2>Características</h2>
+            <ul>
+              <li>Velocidad</li>
+              <li>Facilidad de implementación</li>
+              <li>
+                Cifrado en tiempo real
+                <ul style="list-style-type: none">
+                  <li>
+                    Ideal para transmisiones de datos, como videollamadas o
+                    cifrado de redes inalámbricas
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Características</h2>
+            <ul>
+              <li>
+                Funciona generando una secuencia de claves (keystream) que se
+                combina con el texto plano mediante una operación XOR
+              </li>
+              <li>Claves cortas</li>
+              <li>
+                Sensibles a la reutilización de claves
+                <ul style="list-style-type: none">
+                  <li>
+                    Si se usa la misma clave para cifrar múltiples mensajes, un
+                    atacante puede deducir información.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <!-- KEYSTREAMS -->
+        <section>
+          <section>
+            <h2>Keystreams</h2>
+            <ul>
+              <li>Secuencia de bits generada por el algoritmo</li>
+              <li>Se combina con el texto plano mediante XOR</li>
+              <li>Se utiliza una vez y se descarta</li>
+              <li>Depende de la clave y el vector de inicialización</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Keystreams</h2>
+            <p>
+              Es una cadena de datos infinita que contiene caracteres aleatorios
+              o pseudoaleatorios, los cuales se utilizan como clave para
+              encriptar datos y mantenerlos en secreto.
+            </p>
+          </section>
+        </section>
+        <!-- PROCESO -->
+        <section>
+          <section>
+            <h2>Proceso</h2>
+            <img
+              src="../assets/stream_proces.jpg"
+              alt="Stream cipher encryption"
+            />
+            <ul>
+              <li>Generación de keystream</li>
+              <li>Operación XOR</li>
+              <li>Descifrado</li>
+            </ul>
+          </section>
+          <section>
+            <h2><strong>Generación de keystream:</strong></h2>
+            <img
+              src="../assets/flujoPseudo.png"
+              alt="Stream cipher keystream"
+            />
+            <p>
+              Se genera una secuencia de bits aleatorios o pseudoaleatorios a
+              partir de la clave y el vector de inicialización.
+            </p>
+          </section>
+          <section>
+            <h2><strong>Flujo Pseudoaleatorio</strong></h2>
+            <ul>
+              <li>
+                Utilizan un flujo pseudoaleatorio de bits que se genera mediante
+                un algoritmo de generación de números pseudoaleatorios (PRNG).
+              </li>
+              <li>
+                La clave y, en algunos casos, un vector de inicialización (IV)
+                alimentan el PRNG para generar la secuencia pseudoaleatoria
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2><strong>Operación XOR:</strong></h2>
+            <p>
+              Se combina el keystream con el texto plano mediante una operación
+              XOR.
+            </p>
+          </section>
+          <section>
+            <h2>
+              <strong>Descifrado:</strong>
+            </h2>
+            <p>Se realiza el proceso inverso para obtener el texto plano.</p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

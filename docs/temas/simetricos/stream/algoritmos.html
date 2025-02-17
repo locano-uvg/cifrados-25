@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stream Ciphers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Algoritmos Stream Ciphers</h1>
+        </section>
+        <!-- AGENDA -->
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>
+              Algoritmos
+              <ul style="list-style-type: none">
+                <li>OTP</li>
+                <li>PRNG</li>
+                <li>A5/3 (Kasumi)</li>
+                <li>RC4</li>
+                <li>ChaCha20</li>
+                <li>Salsa20</li>
+                <li>Grain</li>
+                <li>Trivium</li>
+              </ul>
+            </li>
+            <li>Ejemplos</li>
+            <li>¿Cúal es el más seguro?</li>
+          </ul>
+        </section>
+        <!--  A5/3 (Kasumi)  -->
+        <section>
+          <h2>A5/3 (Kasumi)</h2>
+          <ul>
+            <li>Desarrollado por la 3GPP en 1999.</li>
+            <li>Utilizado en 3G y 4G.</li>
+          </ul>
+        </section>
+        <!-- OTP -->
+        <section>
+          <h2>OTP</h2>
+          <p>
+            El algoritmo de cifrado de flujo más seguro es el OTP (One Time
+            Pad). Este algoritmo es seguro siempre y cuando se cumplan las
+            siguientes condiciones:
+          </p>
+          <ul>
+            <li>La clave debe ser generada de forma aleatoria.</li>
+            <li>La clave debe ser tan larga como el mensaje a cifrar.</li>
+            <li>La clave no debe ser reutilizada.</li>
+          </ul>
+        </section>
+        <!-- PRNG -->
+        <section>
+          <h2>PRNG</h2>
+          <p>
+            Los generadores de números pseudoaleatorios (PRNG) son algoritmos
+            que generan secuencias de números que parecen ser aleatorios. Estos
+            algoritmos son utilizados para generar claves de cifrado de flujo.
+          </p>
+        </section>
+        <!-- RC4 -->
+        <section>
+          <h2>RC4</h2>
+          <ul>
+            <li>Desarrollado por Ron Rivest en 1987.</li>
+            <li>Utilizado en SSL y WEP.</li>
+            <li>Es vulnerable a ataques de análisis de flujo de claves</li>
+            <li>Ya no es considerado seguro</li>
+          </ul>
+        </section>
+        <!-- ChaCha20 -->
+        <section>
+          <h2>ChaCha20 y Salsa20</h2>
+          <ul>
+            <li>Desarrollado por Daniel J. Bernstein en 2008.</li>
+            <li>Utilizado en TLS y WireGuard.</li>
+            <li>Mejor rendimiento y seguridad que RC4</li>
+            <li>
+              ChaCha20 es utilizado en TLS y en el protocolo WireGuard para
+              VPNs.
+            </li>
+            <li>
+              Salsa20 es utilizado en el protocolo de cifrado de disco LUKS.
+            </li>
+            <li>Es considerado seguro.</li>
+          </ul>
+        </section>
+        <!-- Grain -->
+        <section>
+          <h2>Grain & Trivium</h2>
+          <ul>
+            <li>Desarrollado por Martin Hell y Thomas Johansson en 2007.</li>
+            <li>Utilizado en Bluetooth.</li>
+            <li>Diseñados para dispositivos con recursos limitados (IoT).</li>
+            <li>
+              Es un algoritmo de cifrado de flujo basado en registros LFSR.
+            </li>
+            <li>Es considerado seguro.</li>
+          </ul>
+        </section>
+        <!-- Ejemplos -->
+        <section>
+          <section>
+            <h2>Ejemplos</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Caso de uso</th>
+                  <th>Descripción</th>
+                  <th>Algoritmos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cifrado de Wi-Fi (WEP, WPA)</td>
+                  <td>
+                    WEP usaba RC4 (pero es inseguro). WPA2 reemplazó RC4 con
+                    AES-CCMP (bloque). WPA3 usa ChaCha20.
+                  </td>
+                  <td>RC4, ChaCha20</td>
+                </tr>
+                <tr>
+                  <td>VPN</td>
+                  <td>
+                    Cifrado de tráfico de red entre dos dispositivos remotos.
+                  </td>
+                  <td>ChaCha20, Salsa20</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Ejemplos</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Caso de uso</th>
+                  <th>Descripción</th>
+                  <th>Algoritmos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Disco duro</td>
+                  <td>Cifrado de disco duro en sistemas Linux.</td>
+                  <td>Salsa20</td>
+                </tr>
+                <tr>
+                  <td>IoT</td>
+                  <td>Sensores, IoT, Dispositivos IoT, smart card</td>
+                  <td>Trivium, Grain</td>
+                </tr>
+
+                <tr>
+                  <td>Bluetooth</td>
+                  <td>Cifrado de tráfico de red entre dispositivos móviles.</td>
+                  <td>Grain, Trivium</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Ejemplos</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Caso de uso</th>
+                  <th>Descripción</th>
+                  <th>Algoritmos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Streaming de datos en tiempo real</td>
+                  <td>
+                    Voz y video encriptados para evitar espionaje en tiempo real
+                    (ej. llamadas VoIP).
+                  </td>
+                  <td>ChaCha20, Salsa20</td>
+                </tr>
+                <tr>
+                  <td>Mensajeria Segura</td>
+                  <td>
+                    Signal y WhatsApp usan cifrados en flujo dentro de sus
+                    protocolos de cifrado de extremo a extremo.
+                  </td>
+                  <td>ChaCha20, Salsa20</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <!-- ¿Cúal es el más seguro? -->
+        <section>
+          <h2>¿Cúal es el más seguro?</h2>
+          <p>
+            Hoy en día, ChaCha20 es el más popular y seguro, reemplazando a RC4
+            en muchas aplicaciones. En IoT y dispositivos embebidos, Grain y
+            Trivium siguen siendo relevantes. En redes móviles, A5/3 (Kasumi)
+            aún se usa en 3G y 4G.
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>
