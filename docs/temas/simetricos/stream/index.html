@@ -84,7 +84,10 @@
           <section>
             <h2>Keystreams</h2>
             <ul>
-              <li>Secuencia de bits generada por el algoritmo</li>
+              <li>
+                Secuencia de bits generada por el algoritmo a partir de una
+                clave y nonce
+              </li>
               <li>Se combina con el texto plano mediante XOR</li>
               <li>Se utiliza una vez y se descarta</li>
               <li>Depende de la clave y el vector de inicialización</li>
@@ -99,6 +102,47 @@
               encriptar datos y mantenerlos en secreto.
             </p>
           </section>
+
+          <!-- keystreams y el nonce -->
+          <section>
+            <h2>Nonce</h2>
+            <p>
+              Es un valor numérico que se utiliza una vez y se
+              descarta. Se utiliza para evitar la reutilización de claves.
+            </p>
+          </section>
+          <!-- Longitud de llave -->
+           <section>
+            <h2>Longitud de la clave</h2>
+            <p>
+              La longitud de la clave es un factor importante en la seguridad
+              del cifrado. Una clave más larga es más segura.
+            </p>
+            <p>
+              Se refiere al número de bits que componen la clave utilizada por el algoritmo de cifrado
+            </p>
+           </section>
+           <section>
+            <h2>Longitud de la clave</h2>
+            <table>
+              <tr>
+                <th>Longitud de la clave</th>
+                <th>Seguridad</th>
+              </tr>
+              <tr>
+                <td>64 bits</td>
+                <td>Baja</td>
+              </tr>
+              <tr>
+                <td>128 bits</td>
+                <td>Media</td>
+              </tr>
+              <tr>
+                <td>256 bits</td>
+                <td>Alta</td>
+              </tr>
+            </table>
+           </section>
         </section>
         <!-- PROCESO -->
         <section>
