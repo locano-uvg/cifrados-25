@@ -17,6 +17,245 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        <section>
+          <h1>Block Ciphers</h1>
+        </section>
+        <!-- AGENDA -->
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Definición</li>
+            <li>Aplicaciones Comunes</li>
+            <li>Características</li>
+            <li>Clasificación</li>
+            <li>Estructuras</li>
+          </ul>
+        </section>
+        <!-- DEFINICION -->
+        <section>
+          <section>
+            <h2>Definición</h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Cifrado que operan sobre <b>bloques de datos </b> de longitud
+                fija.
+              </li>
+              <li>
+                Divide los datos en bloques y aplican una función de cifrado a
+                cada bloque por separado.
+              </li>
+              <li>Cifra bloques de bits de manera independiente</li>
+              <li>Clave compartida entre emisor y receptor</li>
+              <li>Requiere relleno de bits</li>
+            </ul>
+          </section>
+          <section>
+            <img
+              src="../assets/blcok_cipher.png"
+              alt="Block Cipher Diagram"
+              width="700"
+            />
+          </section>
+        </section>
+
+        <!-- CARACTERISTICAS -->
+        <section>
+          <section>
+            <h2>Características Generales</h2>
+          </section>
+          <section>
+            <ul>
+              <li>Tamaño de bloque</li>
+              <li>Seguridad</li>
+              <li>Implementación</li>
+            </ul>
+          </section>
+          <!-- Tamaño de Bloque -->
+          <section>
+            <h3>Tamaño de Bloque</h3>
+            <ul>
+              <li>Tamaño de bloque es constante</li>
+              <li>Generalmente 64 o 128 bits.</li>
+              <li>Mientras más grande es más seguro</li>
+              <li>
+                Mientras más grande se generá mayor tiempo de procesamiento
+              </li>
+            </ul>
+            <p>
+              Por ejemplo, en el caso de AES (Advanced Encryption Standard), el
+              tamaño del bloque es de 128 bits.
+            </p>
+          </section>
+          <!-- Implementación -->
+          <section>
+            <h3>Implementación</h3>
+            <ul>
+              <li>
+                Cada bloque de datos se cifra utilizando una función de cifrado
+                específica
+              </li>
+              <li>
+                Utiliza una clave secreta compartida entre el emisor y el
+                receptor.
+              </li>
+            </ul>
+            <p>
+              Esta función de cifrado puede ser un algoritmo como DES (Data
+              Encryption Standard) o AES.
+            </p>
+          </section>
+          <!-- Seguridad -->
+          <section>
+            <h3>Seguridad</h3>
+            <ul>
+              <li>Depende de la longitud de la clave</li>
+              <li>Depende de la fortaleza del algoritmo</li>
+              <li>Depende de la implementación</li>
+            </ul>
+            <p>
+              AES, por ejemplo, es ampliamente utilizado y se considera seguro
+              cuando se utiliza con claves suficientemente largas.
+            </p>
+          </section>
+        </section>
+
+        <!-- Aplicaciones Comunes -->
+        <section>
+          <section>
+            <h2>Aplicaciones Comunes</h2>
+          </section>
+          <section>
+            <h2>Aplicaciones Comunes</h2>
+            <ul>
+              <li>
+                Almacenamiento seguro de datos
+                <ul>
+                  <li>Encriptación de discos</li>
+                  <li>Encriptación de archivos</li>
+                </ul>
+              </li>
+              <li>
+                Comunicaciones seguras
+                <ul>
+                  <li>VPNs</li>
+                  <li>Correo electrónico</li>
+                  <li>Transferencia de archivos</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Aplicaciones Comunes</h2>
+            <ul>
+              <li>
+                Protección de la privacidad e integridad de los datos
+                <ul>
+                  <li>
+                    Aseguramiento de la privacidad y confidencialidad de datos
+                    almacenados en dispositivos, servidores o sistemas de
+                    almacenamiento.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Estructura -->
+        <section>
+          <section>
+            <h2>Estructuras y Modo de operación</h2>
+          </section>
+          <section>
+            <p>Existen dos principales estructuras:</p>
+            <ul>
+              <li>Red de Feistel</li>
+              <li>Substitution-Permutation Network - SPN</li>
+            </ul>
+          </section>
+          <section>
+            <p>Existen cindo modos de operación:</p>
+            <ul>
+              <li>ECB</li>
+              <li>CBC</li>
+              <li>CTR</li>
+              <li>CFB</li>
+              <li>OFB</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ALGORITMOS -->
+        <section>
+          <section>
+            <h2>Algoritmos de Cifrado de Bloques</h2>
+          </section>
+          <section>
+            <p>
+              Algunos de los algoritmos de cifrado de bloques más comunes son:
+            </p>
+            <ul>
+              <li>Blowfish</li>
+              <li>Twofish</li>
+              <li>Serpent</li>
+              <li>Camellia</li>
+              <li>DES y Triple DES **</li>
+              <li>AES (Advanced Encryption Standard) **</li>
+            </ul>
+          </section>
+          <section>
+            <p>Algoritmos Más Usados y Seguros:</p>
+            <ul>
+              <li>
+                AES (Advanced Encryption Standard) 🔥
+                <ul>
+                  <li>Longitudes de clave: 128, 192, 256 bits.</li>
+                </ul>
+              </li>
+              <li>
+                ChaCha20
+                <ul>
+                  <li>
+                    aunque es más Stream Cipher, es usado en lugar de AES en
+                    algunos casos
+                  </li>
+                </ul>
+              </li>
+              <li>Serpent *</li>
+              <li>Twofish *</li>
+              <li>Camellia *</li>
+            </ul>
+            <p>*Finalistas de la competencia AES, pero menos usados.</p>
+          </section>
+          <section>
+            <p>Algoritmos Menos Usados y Rotos:</p>
+            <ul>
+              <li>
+                DES (Data Encryption Standard) ❌
+                <ul>
+                  <li>Clave de solo 56 bits, vulnerable a fuerza bruta</li>
+                  <li>Reemplazado por Triple DES</li>
+                </ul>
+              </li>
+              <li>
+                3DES (Triple DES) 🚫
+                <ul>
+                  <li>Mejora DES pero sigue siendo lento e inseguro.</li>
+                  <li>Deprecado en el año 2023.</li>
+                </ul>
+              </li>
+              <li>Blowfish</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Modos de Operación -->
+        <section>
+          <h2><a href="./algoritmos.html">Modos de Operación</a></h2>
+        </section>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>

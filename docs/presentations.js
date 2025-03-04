@@ -19,7 +19,7 @@ export const presentations = [
         path: "temas/simetricos/stream/index.html",
         image: "temas/simetricos/assets/stream.png",
         active: true
-    },,
+    }, ,
     {
         title: "Algoritmos Stream Ciphers",
         description: "OTP, ChaCha20, Salsa20...",
@@ -32,6 +32,12 @@ export const presentations = [
         description: "Cifrados de bloque",
         path: "temas/simetricos/block/index.html",
         image: "temas/simetricos/assets/block.png",
-        active: false
+        active: true
+    }, {
+        title: "Algoritmos Block Ciphers",
+        description: "AES, DES, 3DES...",
+        path: "temas/simetricos/block/algoritmos.html",
+        image: "temas/simetricos/assets/block_al.png",
+        active: true
     }
 ];
