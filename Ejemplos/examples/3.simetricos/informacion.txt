@@ -1,0 +1,1 @@
+Our secure construction is randomized. Specifically, we encrypt by applying the pseudorandom function to a random value r (rather than the message) and XORing the result with the plaintext.
