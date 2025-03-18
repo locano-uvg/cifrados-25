@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cifrados Asimétricos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Cifrados Asimétricos</h1>
+        </section>
+
+        <section>
+          <section>
+            <h2>Introducción</h2>
+          </section>
+          <section>
+            <p>La criptografía asimétrica usa un par de claves:</p>
+            <ul>
+              <li>
+                <strong>Clave pública</strong>: Se comparte y cifra los datos.
+              </li>
+              <li>
+                <strong>Clave privada</strong>: Se mantiene secreta y descifra
+                los datos.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Historia</h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                1976: <strong>Diffie y Hellman </strong>introducen la
+                criptografía de clave pública.
+                <ul style="list-style-type: none">
+                  <li>
+                    Su trabajo seminal "New Directions in Cryptography"
+                    introdujo la idea de un sistema criptográfico donde las
+                    claves de cifrado y descifrado son diferentes
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                1977: <strong>RSA</strong> es desarrollado por Rivest, Shamir y
+                Adleman.
+                <ul style="list-style-type: none">
+                  <li>
+                    RSA se basa en la dificultad computacional de factorizar
+                    números grandes en primos, proporcionando una seguridad
+                    robusta.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Funcionamiento</h2>
+          </section>
+          <section>
+            <ul>
+              <li><strong>Generación de Claves</strong>:</li>
+              <li>
+                Un usuario genera un par de claves, una pública y otra privada.
+              </li>
+              <li>
+                La clave pública se comparte abiertamente, mientras que la clave
+                privada se mantiene en secreto.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li><strong>Firma Digital</strong>:</li>
+              <li>
+                Un usuario puede crear una firma digital para un mensaje
+                utilizando su clave privada.
+              </li>
+              <li>
+                Otros pueden verificar la firma utilizando la clave pública del
+                firmante, asegurándose de que el mensaje no haya sido alterado y
+                provenga del propietario de la clave privada.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <strong>Cifrado</strong>: <br />
+                Cualquier persona puede cifrar con la clave pública del
+                destinatario.
+              </li>
+              <li>
+                <strong>Descifrado</strong>: <br />Solo el destinatario puede
+                descifrar con su clave privada.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <strong>Intercambio Seguro de Claves </strong>: <br />
+                Se pueden utilizar algoritmos de intercambio de claves, como
+                Diffie-Hellman, para permitir que dos partes acuerden una clave
+                compartida sin revelar sus claves privadas.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img src="./assets/public1.gif" alt="Cifrado Asimétrico" />
+          </section>
+        </section>
+
+        <section>
+          <section><h2>Algoritmos Populares</h2></section>
+          <section>
+            <ul>
+              <li>
+                <strong>RSA</strong>: Basado en factorización de números
+                grandes.
+              </li>
+              <li>
+                <strong>Diffie-Hellman</strong>: Intercambio seguro de claves.
+              </li>
+              <li><strong>ElGamal</strong>: Basado en logaritmos discretos.</li>
+              <li>
+                <strong>ECC</strong>: Más eficiente que RSA con claves más
+                pequeñas.
+              </li>
+              <li><strong>EdDSA</strong>: Alta seguridad y eficiencia.</li>
+              <li>
+                <strong>PQC</strong>: Algoritmos resistentes a ataques
+                cuánticos.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Aplicaciones</h2>
+          </section>
+          <section>
+            <ul>
+              <li>Seguridad en Internet (HTTPS, TLS).</li>
+              <li>Firmas digitales y autenticación.</li>
+              <li>Blockchain y criptomonedas.</li>
+              <li>Correos electrónicos seguros (PGP, S/MIME).</li>
+              <li>Autenticación en VPN y SSH.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Motivación</h2>
+          </section>
+          <section>
+            <ul>
+              <li><strong>Problema de Intercambio de Claves</strong></li>
+              <li>La criptografía de clave pública se ha convertido en la base de numerosas aplicaciones de seguridad, desde la protección de la privacidad en las comunicaciones en línea hasta la autenticación en transacciones financieras.
+            </li>
+              <li><strong>Seguridad en Comunicaciones Públicas</strong></li>
+              <li>La criptografía de clave pública permitió a las personas comunicarse de manera segura en un entorno público sin compartir previamente una clave secreta. Esto fue esencial para la era de las comunicaciones electrónicas y el auge de las redes de computadora.
+            </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+                <li><strong>Autenticación y Firma Digital</strong></li>
+              <li>Seguridad en Comunicaciones Públicas</li>
+              <li><strong>Desarrollo de Aplicaciones de Seguridad</strong></li>
+              <li>La criptografía de clave pública se ha convertido en la base de numerosas aplicaciones de seguridad, desde la protección de la privacidad en las comunicaciones en línea hasta la autenticación en transacciones financieras.
+            </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Errores Comunes</h2>
+          </section>
+          <section>
+            <ul>
+              <li>Uso de claves débiles.</li>
+              <li>Exposición de la clave privada.</li>
+              <li>No verificar certificados en HTTPS.</li>
+              <li>Uso incorrecto de firmas digitales.</li>
+              <li>Almacenamiento inseguro de claves.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+            <img src="./assets/public2.gif" alt="Cifrado Asimétrico vs Simétrico" />
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

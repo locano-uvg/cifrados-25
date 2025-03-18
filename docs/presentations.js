@@ -39,5 +39,12 @@ export const presentations = [
         path: "temas/simetricos/block/algoritmos.html",
         image: "temas/simetricos/assets/block_al.png",
         active: true
+    },
+    {
+        title: "Cifrados Asimétricos",
+        description: "Introducción a los cifrados asimétricos",
+        path: "temas/asimetricos/index.html",
+        image: "temas/asimetricos/assets/asimetricos.png",
+        active: true
     }
 ];
