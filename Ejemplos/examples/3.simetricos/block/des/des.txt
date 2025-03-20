@@ -1,0 +1,6 @@
+The DES block cipher is a 16-round Feistel network with a block length of
+64 bits and a key length of 56 bits. The same round function ˆ f is used in each
+of the 16 rounds. The round function takes a 48-bit sub-key and, as expected
+for a (balanced) Feistel network, a 32-bit input (namely, half a block). The
+key schedule of DES is used to derive a sequence of 48-bit sub-keys k1, . . . , k16
+from the 56-bit master key.

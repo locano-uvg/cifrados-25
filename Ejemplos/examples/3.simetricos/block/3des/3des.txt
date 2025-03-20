@@ -1,0 +1,6 @@
+The main weakness of DES is its short key. It thus makes sense to try to
+design a block cipher with a larger key length using DES as a building block.
+Some approaches to doing so are discussed in this section. Although we refer
+to DES frequently throughout the discussion, and DES is the most prominent
+block cipher to which these techniques have been applied, everything we say
+here applies generically to any block cipher.

@@ -1,0 +1,17 @@
+¿Cómo se utiliza el Hashing en Blockchain?
+Tasa de hash total de Bitcoin: 
+
+Bitcoin funciona en una cadena de bloques y utiliza el algoritmo hash 'SHA-256' (Secure Hashing Algorithm 256). Para bitcoin, las funciones hash se utilizan para tres funciones principales:
+
+Minería
+Los mineros corren para resolver un rompecabezas; cada minero toma información de los bloques que ya conoce, los procesa y construye un bloque a partir de ellos. Si el resultado del algoritmo es menor que el número objetivo, se considerará válido y podrá ser aceptado por el resto de la red. Luego tienen derecho a crear el siguiente bloque.
+
+Bloques de enlace
+Para mayor ; Cada bloque de la cadena de bloques está vinculado al anterior. Esto se logra con un puntero hash (variables que almacenan la dirección de otra variable). Básicamente, cada bloque contiene el resultado hash del bloque anterior en la cadena de bloques. Esto garantiza que el historial de la cadena de bloques se pueda rastrear fácilmente y elimina la posibilidad de que se agregue un bloque malicioso.
+
+Creando claves
+Para enviar o recibir criptomonedas, necesita una clave pública y privada. Estas dos claves están conectadas entre sí mediante una función hash. Este es un componente esencial para garantizar que nadie pueda descifrar su clave privada basándose en su clave pública.
+
+
+La importancia del hash
+La función hash proporciona a las criptomonedas un alto nivel de seguridad. Aunque, en teoría, nada en línea es inmune al hackeo; la función hash proporciona el nivel de dificultad máximo disponible actualmente.
