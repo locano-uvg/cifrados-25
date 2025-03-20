@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comparación de Algoritmos: Diffie-Hellman, ElGamal y ECC</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Comparación de Algoritmos</h1>
+        </section>
+
+        <section>
+          <table style="width: 100%; font-size: 1.5rem">
+            <tr>
+              <th>Algoritmo</th>
+              <th>Tipo</th>
+              <th>Seguridad Basada en</th>
+              <th>Uso Principal</th>
+            </tr>
+            <tr>
+              <td><strong>RSA</strong></td>
+              <td>Cifrado y Firmas Digitales</td>
+              <td>Factorización de números</td>
+              <td>Cifrado y autenticación</td>
+            </tr>
+            <tr>
+              <td><strong>Diffie-Hellman (DH)</strong></td>
+              <td>Intercambio de claves</td>
+              <td>Logaritmo discreto</td>
+              <td>Establecimiento de claves seguras</td>
+            </tr>
+            <tr>
+              <td><strong>ElGamal</strong></td>
+              <td>Cifrado y Firmas Digitales</td>
+              <td>Logaritmo discreto</td>
+              <td>Cifrado de mensajes y autenticación</td>
+            </tr>
+            <tr>
+              <td><strong>ECC</strong></td>
+              <td>Cifrado, Firmas y Claves</td>
+              <td>Logaritmo discreto en curvas elípticas</td>
+              <td>Seguridad con claves más cortas</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <section>
+            <h2>Diffie-Hellman (DH)</h2>
+          </section>
+          <section>
+            <p>
+              Permite a dos partes generar una clave secreta compartida a través
+              de un canal inseguro.
+            </p>
+            <ul>
+              <li>✅ Proporciona secreto perfecto hacia adelante.</li>
+              <li>✅ Es rápido y eficiente en recursos computacionales.</li>
+              <li>❌ No provee autenticación por sí mismo.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>ElGamal</h2>
+          </section>
+          <section>
+            <p>
+              Proporciona cifrado asimétrico y firmas digitales basadas en
+              logaritmos discretos.
+            </p>
+            <ul>
+              <li>✅ Seguro contra ataques de reversión directa.</li>
+              <li>❌ Cifrado más lento en comparación con RSA y ECC.</li>
+              <li>
+                ❌ Tamaño del texto cifrado es el doble que el mensaje original.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>ECC (Criptografía de Curvas Elípticas)</h2>
+          </section>
+          <section>
+            <p>
+              Ofrece mayor seguridad con claves más cortas y mejor rendimiento.
+            </p>
+            <ul>
+              <li>✅ Claves más cortas con la misma seguridad que RSA.</li>
+              <li>✅ Más eficiente en hardware y dispositivos IoT.</li>
+              <li>❌ Matemáticamente más complejo.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Comparación de Seguridad y Rendimiento</h2>
+          </section>
+          <section>
+            <table style="width: 100%; font-size: 1.5rem">
+              <tr>
+                <th>Algoritmo</th>
+                <th>Seguridad con Clave de 256 bits</th>
+                <th>Rendimiento</th>
+              </tr>
+                <tr>
+                    <td><strong>RSA</strong></td>
+                    <td>Media</td>
+                    <td>Bajo</td>
+                </tr>
+              <tr>
+                <td><strong>Diffie-Hellman</strong></td>
+                <td>Baja</td>
+                <td>Medio</td>
+              </tr>
+              <tr>
+                <td><strong>ElGamal</strong></td>
+                <td>Alta</td>
+                <td>Bajo</td>
+              </tr>
+              <tr>
+                <td><strong>ECC</strong></td>
+                <td>Muy Alta</td>
+                <td>Alto</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+
+        <!-- <section>
+         <section>
+            <h2>¿Cuál Algoritmo Usar?</h2>
+         </section>
+         <section>
+            <ul>
+                <li><b>Intercambio de Claves en TLS/IPsec:</b> ECDH</li>
+                <li><b>Firmas Digitales en Blockchain:</b> ECDSA</li>
+                <li><b>Autenticación en Dispositivos IoT:</b> ECC (Ed25519)</li>
+                <li>
+                  <b>Cifrado de Mensajes:</b> ElGamal (pero no es eficiente)
+                </li>
+                <li><b>Seguridad a Largo Plazo:</b> ECC</li>
+              </ul>
+         </section>
+        </section>
+
+        <section>
+          <h2>Conclusión</h2>
+          <p>
+            Para la mayoría de aplicaciones modernas, ECC es la mejor opción
+            debido a su alta seguridad y eficiencia.
+          </p>
+        </section> -->
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

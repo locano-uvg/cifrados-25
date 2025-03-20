@@ -46,5 +46,40 @@ export const presentations = [
         path: "temas/asimetricos/index.html",
         image: "temas/asimetricos/assets/asimetricos.png",
         active: true
+    },
+    {
+        title: "Hashes",
+        description: "Funciones hash",
+        path: "temas/asimetricos/Hashes/index.html",
+        image: "temas/asimetricos/assets/hash.png",
+        active: true
+    },
+    {
+        title: "Firmas Digitales",
+        description: "Firmas digitales",
+        path: "temas/asimetricos/Firmas/index.html",
+        image: "temas/asimetricos/assets/firma1.jpg",
+        active: true
+    },
+    {
+        title: "RSA",
+        description: "Algoritmo RSA",
+        path: "temas/asimetricos/RSA/index.html",
+        image: "temas/asimetricos/assets/rsa1.png",
+        active: true
+    },
+    {
+        title: "ECC",
+        description: "Algoritmo ECC",
+        path: "temas/asimetricos/ECC/index.html",
+        image: "temas/asimetricos/assets/ecc.png",
+        active: true
+    },
+    {
+        title: "Algoritmos Asimétricos",
+        description: "Comparación de Algoritmos asimétricos",
+        path: "temas/asimetricos/Algoritmos/index.html",
+        image: "temas/asimetricos/assets/algoritmos.jpeg",
+        active: true
     }
 ];

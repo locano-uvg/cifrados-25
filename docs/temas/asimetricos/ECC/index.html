@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Criptografía de Curvas Elípticas (ECC)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Criptografía de Curvas Elípticas (ECC)</h2>
+        </section>
+
+        <section>
+          <section>
+            <h2>¿Qué es ECC?</h2>
+          </section>
+          <section>
+            <p>
+              ECC (Elliptic Curve Cryptography) es un sistema criptográfico
+              basado en las matemáticas de curvas elípticas.
+            </p>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Proporciona el mismo nivel de seguridad que RSA con claves mucho
+                más cortas.
+              </li>
+              <li>
+                Más eficiente en términos de almacenamiento y computación.
+              </li>
+              <li>
+                Usado en cifrado, firmas digitales y generación de claves.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Ventajas de ECC</h2>
+          </section>
+          <section>
+            <ul>
+              <li><strong>Seguridad alta</strong> con claves más pequeñas.</li>
+              <li><strong>Eficiencia</strong> en hardware y software.</li>
+              <li>
+                <strong>Más rápido</strong> que RSA en generación de claves y
+                firmas digitales.
+              </li>
+              <li>
+                <strong>Menor consumo de energía </strong>, ideal para IoT y
+                móviles.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Comparación: RSA vs ECC</h2>
+          </section>
+          <section>
+            <table>
+              <tr>
+                <th>Algoritmo</th>
+                <th>Tamaño de Clave (equivalente en seguridad)</th>
+                <th>Eficiencia</th>
+              </tr>
+              <tr>
+                <td>RSA</td>
+                <td>2048 bits</td>
+                <td>Menos eficiente</td>
+              </tr>
+              <tr>
+                <td>ECC</td>
+                <td>256 bits</td>
+                <td>Más eficiente</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Aplicaciones de ECC</h2>
+          </section>
+          <section>
+            <ul>
+              <li><strong>TLS/SSL</strong> (HTTPS seguro con ECDHE).</li>
+              <li>
+                <strong>Blockchain</strong> (Bitcoin y Ethereum usan ECDSA).
+              </li>
+              <li><strong>Firmas digitales</strong>> (Ed25519, ECDSA).</li>
+              <li><strong>Autenticación en sistemas IoT</strong>.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Ejemplo en Python</h2>
+          </section>
+        <section>
+            <pre><code class="python">
+                from cryptography.hazmat.primitives.asymmetric import ec
+                
+                # Generar una clave privada ECC
+                private_key = ec.generate_private_key(ec.SECP256R1())
+                public_key = private_key.public_key()
+                print("Clave ECC generada correctamente")
+                                </code></pre>
+        </section>
+        </section>
+
+        <section>
+          <h2>Conclusión</h2>
+          <p>
+            ECC es la mejor alternativa a RSA para aplicaciones modernas debido
+            a su alta seguridad y eficiencia.
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

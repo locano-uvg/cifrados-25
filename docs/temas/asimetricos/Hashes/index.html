@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Funciones Hash - Seguridad Informática</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Funciones Hash</h1>
+        </section>
+
+        <section>
+          <section>
+            <h2>¿Qué es una Función Hash?</h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Una función hash es un algoritmo que convierte una entrada de
+                cualquier tamaño en una salida de
+                <strong>longitud fija.</strong>
+              </li>
+              <li>
+                Esta transformación se realiza mediante un algoritmo de hash
+                específico, que aplica una serie de operaciones matemáticas para
+                producir el resultado final.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Utilizada para el almacenamiento de contraseñas y verificación
+                de integridad.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img
+              src="../assets/hash.png"
+              alt="Función Hash"
+              style="background-color: white"
+            />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Propiedades de una Función Hash</h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <b>Unidireccionalidad</b>: <br />Es fácil calcular el hash de un
+                mensaje, pero es computacionalmente difícil o imposible
+                recuperar el mensaje original a partir del hash.
+              </li>
+              <li>
+                <b>Determinismo</b>: <br />La misma entrada siempre produce el
+                mismo hash.
+              </li>
+              <li>
+                <b>Uniformidad</b>: <br />Pequeños cambios en la entrada deben
+                producir cambios significativos en el hash.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <b>Resistencia a colisiones</b>: <br />Dos entradas distintas no
+                deben producir el mismo hash.
+              </li>
+              <li>
+                <b>Rapidez</b>: <br />Cálculo eficiente incluso con grandes
+                volúmenes de datos.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Algoritmos Hash Modernos</h2>
+          </section>
+          <section>
+            <h3>MD5</h3>
+            <ul>
+              <li>Desarrollado en 1991.</li>
+              <li>Produce un valor de hash de 128-bit</li>
+              <li>Considerado inseguro por vulnerabilidades.</li>
+              <li>Usado para verificar integridad de archivos.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SHA</h3>
+            <p>
+              SHA significa (Secure Hash Algorithm) Algoritmo de Hash Seguro
+            </p>
+          </section>
+          <section>
+            <h3>SHA-1</h3>
+            <ul>
+              <li>Desarrollado en 1995.</li>
+              <li>Produce un valor de hash de 160-bit.</li>
+              <li>Produce un valor hexadecimal de 40 dígitos</li>
+              <li>Considerado inseguro por vulnerabilidades.</li>
+              <li>Usado en firmas digitales y autenticación.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SHA-256</h3>
+            <ul>
+              <li>Desarrollado en 2001.</li>
+              <li>Produce un valor de hash de 256-bit.</li>
+              <li>Produce un valor hexadecimal de 64 dígitos</li>
+              <li>Ampliamente utilizado en aplicaciones de seguridad.</li>
+              <li>Usado en Blockchain y protección de contraseñas.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SHA-3</h3>
+            <ul>
+              <li>Desarrollado en 2015.</li>
+              <li>Produce un valor de hash de 224, 256, 384 o 512-bit.</li>
+              <li>Considerado más seguro que SHA-2.</li>
+              <li>Usado en aplicaciones críticas de seguridad.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>BLAKE3</h3>
+            <ul>
+              <li>Desarrollado en 2020.</li>
+              <li>Produce un valor de hash de 256-bit.</li>
+              <li>Considerado más rápido y seguro que SHA-3.</li>
+              <li>Usado en aplicaciones de alto rendimiento.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Argon2</h3>
+            <ul>
+              <li>Desarrollado en 2015.</li>
+              <li>Función hash específica para proteger contraseñas.</li>
+              <li>Considerado más seguro que otros algoritmos.</li>
+              <li>Usado en aplicaciones de autenticación.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Aplicaciones</h2>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                <strong>Verificación de Integridad de Datos:</strong> <br />
+                Verificar que un conjunto de datos no ha sido alterado o
+                corrompido.
+              </li>
+              <li>
+                <strong>Protección de Contraseñas:</strong><br />
+                Almacenar contraseñas de forma segura mediante el almacenamiento
+                del hash en lugar de la contraseña en sí misma.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <strong>Autenticación de Mensajes :</strong> <br />
+                Generar firmas digitales para autenticar la fuente y la
+                integridad de un mensaje.
+              </li>
+              <li>
+                <strong>Indexación y Búsqueda Eficiente :</strong><br />
+                Generar firmas digitales para autenticar la fuente y la
+                integridad de un mensaje.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Blockchain</h3>
+            <p>
+              Bitcoin utiliza SHA-256 para generar bloques de transacciones.
+            </p>
+          </section>
+          <section>
+            <h3>Firmas Digitales</h3>
+            <p>
+              SHA-1 y SHA-256 son usados para autenticar mensajes y documentos.
+            </p>
+          </section>
+          <section>
+            <h3>Protección de Contraseñas</h3>
+            <p>Argon2 es usado para proteger contraseñas en bases de datos.</p>
+          </section>
+          <section>
+            <h3>Verificación de Integridad</h3>
+            <p>
+              SHA-256 es usado para verificar la integridad de archivos y datos.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Hash en validaciones</h2>
+          </section>
+          <section>
+            <img src="../assets/hash2.png" alt="Hash en validaciones" />
+          </section>
+          <section>
+            <p>
+              Un uso típico de las funciones hash es hacer verificaciones de
+              validaciones.
+            </p>
+            <p>
+              Un uso frecuente es la validación de colecciones comprimidas de
+              archivos, tales como archivos <strong>.zip o .tar </strong>
+            </p>
+            <p>
+              Dado un archivo y su valor de hash esperado puedes hacer tu propio
+              cálculo de hash para validar que el archivo que recibiste está
+              completo y no corrupto.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Ejemplos de Seguridad</h2>
+          </section>
+          <section>
+            <img src="../assets/hash3.png" alt="Ejemplos de Seguridad" />
+          </section>
+          <section>
+            <img src="../assets/hash4.png" alt="Ejemplos de Seguridad" />
+            <p>
+              Las empresas de antivirus como Kaspersky Lab, utilizan las
+              funciones criptográficas hash para detectar malware.
+            </p>
+          </section>
+          <section>
+            <p>
+              Las compañías discográficas y cinematográficas crean listas de
+              hash rechazados para proteger sus datos. Existe también listas de
+              hash de malware y muchas de ellas son de acceso público.
+            </p>
+            <p>
+              Estas listas, o firmas de malware (como también se las conoce),
+              están conformadas por valores hash de las piezas de malware o de
+              algunas partes pequeñas y reconocibles de estas piezas.
+            </p>
+          </section>
+          <section>
+            <p>
+              Por un lado, si un usuario detecta una archivo sospechoso, puede
+              consultar en las bases de datos públicas y, de esta forma, sabrá
+              si se trata o no de un archivo malicioso.
+            </p>
+            <p>
+              Por el otro, los productos antivirus detectan y bloquean los
+              malware comparando los hash con sus propias bases de datos y con
+              las públicas.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Implementación</h2>
+          </section>
+          <section>
+            <h2>Ejemplo en Python: SHA-256</h2>
+            <pre><code class="python">
+      import hashlib
+      mensaje = "Hola, mundo"
+      hash_sha256 = hashlib.sha256(mensaje.encode()).hexdigest()
+      print("SHA-256:", hash_sha256)
+                      </code></pre>
+          </section>
+          <section>
+            <h2>Uso de Hash en Contraseñas (Argon2)</h2>
+            <pre><code class="python">
+      from argon2 import PasswordHasher
+      ph = PasswordHasher()
+      hash_contraseña = ph.hash("mi_super_contraseña")
+      print("Hash Argon2:", hash_contraseña)
+                      </code></pre>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

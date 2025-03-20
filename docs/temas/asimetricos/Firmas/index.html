@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Firmas Digitales - Seguridad Informática</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Firmas Digitales</h1>
+        </section>
+
+        <section>
+          <section>
+            <h2>¿Qué es una Firma Digital?</h2>
+          </section>
+          <section>
+            <p>
+              Una firma digital es un mecanismo criptográfico que proporciona
+              <strong>autenticidad, integridad y no repudio.</strong>
+            </p>
+            <p>Basada en criptografía de <strong>clave pública.</strong></p>
+            <p>
+              Utilizada para verificar <strong> la identidad </strong> y
+              asegurar que el contenido <strong>no ha sido alterado.</strong>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>¿Cómo Funciona?</h2>
+          </section>
+          <section>
+            <p>
+              <b>Generación:</b> Se aplica una función hash al mensaje y se
+              cifra con la clave privada.
+            </p>
+            <p>
+              <b>Verificación:</b> El receptor descifra la firma con la clave
+              pública y compara el hash con el del mensaje.
+            </p>
+          </section>
+          <section>
+            <img src="../assets/firma1.jpg" alt="Firma Digital" />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Propiedades</h2>
+          </section>
+          <section>
+            <ul>
+              <li>
+                <b>Autenticidad</b>: Solo el propietario de la clave privada
+                puede generar la firma.
+              </li>
+              <li>
+                <b>Integridad</b>: Cualquier cambio en el mensaje invalida la
+                firma.
+              </li>
+              <li>
+                <b>No repudio</b>: El remitente no puede negar haber firmado el
+                mensaje.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                <b>Imposibilidad de Falsificación</b>: <br />Es
+                computacionalmente inviable para un tercero falsificar una firma
+                digital válida sin conocer la clave privada del remitente.
+              </li>
+              <li>
+                <b>Verificabilidad</b>: <br />Los destinatarios del mensaje
+                pueden verificar la autenticidad e integridad de la firma
+                digital sin necesidad de compartir ninguna clave secreta.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                <b>Independencia del Contenido </b>: <br />La firma digital se
+                calcula sobre el contenido completo del mensaje, pero no revela
+                ninguna información sobre el contenido en sí.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img
+              src="../assets/firma2.jpg"
+              alt="Propiedades de la Firma Digital"
+              height="400"
+            />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Algoritmos de Firma Digital</h2>
+          </section>
+          <section>
+            <p>Los algoritmos de firma digital más comunes son:</p>
+            <ul>
+              <li>RSA-PSS (Probabilistic Signature Scheme)</li>
+              <li>ECDSA (Elliptic Curve Digital Signature Algorithm)</li>
+              <li>EdDSA (Ed25519 y Ed448)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Implementación</h2>
+          </section>
+          <section>
+            <h3>Ejemplo en Python:</h3>
+            <strong> Firmas con RSA-PSS</strong>
+            <pre><code class="python">
+    from Crypto.PublicKey import RSA
+    from Crypto.Signature import pss
+    from Crypto.Hash import SHA256
+    
+    # Generación de clave RSA
+    key = RSA.generate(2048)
+    private_key = key.export_key()
+    public_key = key.publickey().export_key()
+    
+    # Mensaje y firma
+    mensaje = b"Hola, este es un mensaje firmado."
+    hash_mensaje = SHA256.new(mensaje)
+    firma = pss.new(key).sign(hash_mensaje)
+                    </code></pre>
+          </section>
+          <section>
+            <h3>Verificación de Firma</h3>
+            <pre><code class="python">
+    # Verificación de firma
+    hash_mensaje = SHA256.new(mensaje)
+    verifier = pss.new(key.publickey())
+    try:
+        verifier.verify(hash_mensaje, firma)
+        print("Firma válida.")
+    except (ValueError, TypeError):
+        print("Firma inválida.")
+                    </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>HASH + Firma</h2>
+          </section>
+
+          <section>
+            <p>Las funciones hash ayudan a validar la firma de un documento.</p>
+            <p>
+              Cuando un destinatario valida un documento firmado
+              electrónicamente, ocurre un proceso que comprende dos acciones:
+            </p>
+          </section>
+          <section>
+            <img
+              src="../assets/hash2.png"
+              alt="Validación de Firma Digital"
+              height="400"
+            />
+            <ul>
+              <li>Generar un nuevo hash a partir del documento recibido</li>
+              <li>
+                Descifrar el hash que el propio documento contiene almacenado.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>JWT y Firmas Digitales</h2>
+          </section>
+          <section>
+            <p>
+              JWT (JSON Web Token) es un estándar abierto (RFC 7519) que define
+              un formato compacto y autocontenido para la transmisión segura de
+              información entre partes como un objeto JSON.
+            </p>
+          </section>
+          <section>
+            <ul>
+              <li>
+                JSON Web Tokens (JWT) usa firmas digitales para garantizar
+                autenticidad e integridad.
+              </li>
+              <li>
+                La firma se genera con HMAC o algoritmos de clave pública (RSA,
+                ECDSA).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img
+              src="../assets/firma4.png"
+              alt="JWT y Firmas Digitales"
+              height="500"
+            />
+          </section>
+          <section>
+            <h2>Partes</h2>
+          </section>
+          <section>
+            <strong>Header:</strong>
+            <img
+              src="../assets/firma5.png"
+              alt="JWT y Firmas Digitales"
+              height="400"
+            />
+            <p>
+              Consiste en 2 partes <strong> tipo de token </strong> y
+              <strong>algoritmo de cifrado</strong> como HMAC o SHA-256
+            </p>
+          </section>
+          <section>
+            <strong>Payload:</strong>
+            <img
+              src="../assets/firma6.png"
+              alt="JWT y Firmas Digitales"
+              height="400"
+            />
+            <p>Es la sección que contiene datos llamados claims.</p>
+            <p>
+              Los claims son propiedades sobre una entidad (normalmente, el
+              usuario) y datos adicionales.
+            </p>
+          </section>
+          <section>
+            <strong>Signature:</strong>
+            <br />
+            <img
+              src="../assets/firma7.png"
+              alt="JWT y Firmas Digitales"
+              height="200"
+            />
+            <ul>
+              <li>
+                La firma es el contenido del encabezado codificado, el payload
+                codificado, y/o una llave secreta.
+              </li>
+              <li>
+                El algoritmo especificado en el encabezado se utiliza y se
+                firma.
+              </li>
+              <li>
+                La firma se utiliza para verificar que el mensaje no se
+                modificó.
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>

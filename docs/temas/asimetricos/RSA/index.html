@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algoritmos de Cifrado Asimétrico - RSA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>RSA</h1>
+        </section>
+        <section>
+          <section>
+            <h2>Terminiología</h2>
+          </section>
+          <section>
+            <img
+              src="../assets/rsa1.png"
+              alt="RSA"
+              height="400"
+              style="background-color: white"
+            />
+            <br />
+            <strong>Public Key Encryption</strong>
+            <ul>
+              <li>
+                Alice publica una llave publica derivada de una llave privada.
+              </li>
+              <li>
+                Todos pueden encriptar un mensaje para Alice usando la llave
+                pública
+              </li>
+              <li>
+                Solo Alice puede descifrar el mensaje usando la llave privada.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img src="../assets/rsa2.png" alt="RSA" height="400" />
+            <br />
+            <strong>Key Agreement</strong>
+            <p>
+              Los involucrados intercambian llaves publicas en un canal inseguro
+              para establecer una llave secreta.
+            </p>
+          </section>
+          <section>
+            <img src="../assets/rsa3.jpg" alt="RSA" height="400" />
+            <br />
+            <strong>Digital Signature </strong>
+            <ul>
+              <li>
+                Alice publica la llave publica derivada de la llave privada.
+              </li>
+              <li>Alice firma el mensaje usando la llave privada</li>
+              <li>
+                Cualquier persona puede validar el mensaje usando la llave
+                publica
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img src="../assets/rsa4.png" alt="RSA" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Definición</h2>
+          </section>
+          <section>
+            <h3>¿Qué es RSA?</h3>
+            <ul>
+              <li>Algoritmo de cifrado asimétrico</li>
+              <li>Basado en la factorización de números primos</li>
+              <li>Inventado en 1977 por Rivest, Shamir y Adleman</li>
+              <li>
+                Utiliza el concepto de claves distintas para cifrado y
+                descifrado.
+              </li>
+              <li>
+                Utilizado para cifrar y descifrar datos, autenticar la identidad
+                digital y asegurar la comunicación en línea.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Aplicación</h3>
+            <p>
+              RSA se utiliza en una amplia variedad de aplicaciones como:
+              <br />
+              <strong
+                >la encriptación de datos, la firma digital y la autenticación
+                de usuarios.
+              </strong>
+              <br />
+              Es uno de los algoritmos de cifrado más populares y ampliamente
+              utilizados en la actualidad.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Principios Matemáticos</h2>
+          </section>
+          <section>
+            <strong> Factorización de Números Primos </strong>
+            <p>
+              RSA se basa en la dificultad computacional de factorizar grandes
+              números en primos.
+              <br />
+              <br />
+              Dado un número grande que es el producto de dos números primos,
+              encontrar esos factores (descomposición en primos) es
+              computacionalmente costoso.
+            </p>
+          </section>
+          <section>
+            <strong>Generación de claves </strong>
+            <p>
+              El propietario de la clave privada selecciona dos números primos
+              grandes, los multiplica para obtener un número llamado módulo, y
+              usa este módulo para generar las claves pública y privada
+            </p>
+          </section>
+
+          <section>
+            <strong>Cifrado y Descifrado </strong>
+            <p>
+              El cifrado y el descifrado en RSA utilizan exponentes y
+              operaciones modulares, aprovechando propiedades matemáticas que
+              son fáciles de realizar, pero difíciles de invertir sin conocer
+              los factores primos.
+            </p>
+          </section>
+          <section>
+            <strong>Claves Públicas y Privadas </strong>
+            <p>
+                RSA solo puede cifrar datos del tamaño del módulo (ej. 2048 bits ≈ 256 bytes). Si el mensaje es más corto, se rellena con padding. Los esquemas de padding agregan bytes de relleno siguiendo reglas específicas
+            </p>
+          </section>
+        </section?>
+        <section>
+          <section>
+            <h2>Fórmulas</h2>
+          </section>
+          <section>
+            <img src="../assets/rsa5.jpg" alt="RSA" />
+          </section>
+          <section>
+            <h3>Generación de llaves</h3>
+            <ul>
+              <li>
+                Supongamos que hemos elegido los números primos
+                <strong>p = 61 y q = 53</strong>
+              </li>
+              <li>Calculamos el módulo <strong>n = p * q</strong></li>
+              <li><strong>61 * 53 = 3233</strong></li>
+              <li>
+                Calculamos la función de Euler <strong>z = (p-1)*(q-1)</strong>
+              </li>
+              <li><strong>60 * 52 = 3120</strong></li>
+              <li>
+                Elección del Exponente de Cifrado k (Máximo común divisor)
+              </li>
+              <li>
+                Elegimos un exponente de cifrado <strong>k</strong> que sea
+                coprimo con <strong>3120</strong>
+              </li>
+              <li>
+                Supongamos que hemos elegido <strong>k = 17</strong> ya que
+                <strong>gcd(17, 3120) = 1</strong>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Generación de llaves</h3>
+            <ul>
+              <li>
+                Elección del Exponente de Cifrado j (Máximo común divisor)
+              </li>
+              <li>
+                Calculamos <strong>j</strong> como el inverso multiplicativo
+                modular de <strong>k módulo 3120.</strong>
+              </li>
+              <li><strong>En este caso, j = 2753 </strong></li>
+              <li>Ya que <strong>17 * 2753 ≡ 1 (mod 3120).</strong></li>
+              <li>Generamos las Claves</li>
+              <li>Clave pública es (n, e) = (3233, 17).</li>
+              <li>Clave privada es (n, d) = (2753).</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Implementación</h2>
+          </section>
+
+          <section>
+            <h2>Encriptar</h2>
+            <img src="../assets/rsa6.png" alt="RSA" />
+          </section>
+
+          <section>
+            <h2>Encriptar</h2>
+            <img src="../assets/rsa7.png" alt="RSA" />
+          </section>
+
+          <section>
+            <h2>DesEncriptar</h2>
+            <img src="../assets/rsa8.png" alt="RSA" />
+          </section>
+          <section>
+            <h2>Implementación Python</h2>
+            <pre><code class="python">
+                from Crypto.PublicKey import RSA
+                key = RSA.generate(2048)
+                private_key = key.export_key()
+                public_key = key.publickey().export_key()
+                print("Clave privada:", private_key.decode())
+                print("Clave pública:", public_key.decode())
+                                </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Seguridad y Aplicaciones</h2>
+          </section>
+          <section>
+            <h3>Seguridad</h3>
+            <ul>
+              <li>
+                La seguridad de RSA se basa en la dificultad de factorizar
+                números primos grandes.
+              </li>
+              <li>La seguridad de RSA depende de la longitud de la clave.</li>
+              <li>
+                Claves más largas son más seguras, pero también más lentas.
+              </li>
+              <li>Claves de 2048 bits son comunes en la actualidad.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Firmas Digitales</h3>
+            <ul>
+              <li>
+                Las firmas digitales son una forma de autenticación y
+                verificación de la integridad de los datos.
+              </li>
+              <li>
+                Las firmas digitales en RSA se generan a partir de un mensaje y
+                una clave privada.
+              </li>
+              <li>
+                El receptor puede verificar la firma usando la clave pública del
+                emisor.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Cifrado de Clave Simétrica</h3>
+            <p>
+              RSA se utiliza a menudo para cifrar la clave simétrica utilizada
+              en sistemas de cifrado simétrico, proporcionando así una capa
+              adicional de seguridad.
+            </p>
+          </section>
+
+          <section>
+            <h3>Intercambio de Claves</h3>
+            <p>
+              RSA también se utiliza en el intercambio de claves de manera
+              segura, permitiendo que dos partes acuerden una clave compartida
+              sin revelar sus claves privadas.
+            </p>
+          </section>
+
+          <section>
+            <h3>Longitud de la Clave</h3>
+
+            <p>
+              La seguridad de RSA depende en gran medida de la longitud de la
+              clave. Longitudes comunes de clave son 2048 bits y 3072 bits, pero
+              se están considerando longitudes mayores para hacer frente a
+              avances en capacidad computacional
+            </p>
+          </section>
+
+          <section>
+            <h3>Eficiencia</h3>
+            <p>
+              Aunque RSA es seguro, puede ser computacionalmente intensivo,
+              especialmente con claves largas. Por esta razón, a menudo se
+              utiliza en combinación con otros algoritmos para operaciones
+              específica
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Casos de Uso</h2>
+          </section>
+          <section>
+            <ul>
+                <li>TLS/SSL</li>
+                <li>Blockchain y Firmas Digitales</li>
+                <li>Combinación con AES</li>
+              </ul>
+          </section>
+          <section>
+            <img src="../assets/rsa9.png" alt="RSA" />
+          </section>
+          <section>
+            <img src="../assets/rsa10.gif" alt="RSA" />
+          </section>
+          <section>
+            <img src="../assets/rsa11.jpg" alt="RSA" />
+          </section>
+          <section>
+            <img src="../assets/rsa12.webp" alt="RSA" />
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>
